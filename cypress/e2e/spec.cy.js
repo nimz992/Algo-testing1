@@ -1,4 +1,5 @@
 
+const { before } = require('mocha');
 const { readexcel } = require('../support/readexcel');
 describe('template spec', () => {
   let data = [
@@ -7,13 +8,25 @@ describe('template spec', () => {
     "13 week pos forecast comp calc",
     "Tableau report"
   ]
+
+  before(() => {
+    cy.fixture("example").then((filedata) => {
+
+      data = filedata.Ask;
+    })
+
+
+  })
   beforeEach(() => {
     cy.visit("https://algocore-uat.algoplus.com/_admin/Login")
     cy.get('#mat-input-0').clear().type('nimrah.anwar@algo.com')
     cy.get(' #mat-input-1').clear().type('Algo@1234')
     cy.get('#login').click()
     cy.get(':nth-child(1) > .mat-focus-indicator').click();
+    cy.fixture("example").then((filedata) => {
 
+      cy.log(filedata.Ask);
+    })
   }
   )
 
