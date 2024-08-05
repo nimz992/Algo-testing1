@@ -9,6 +9,9 @@ describe("template spec", () => {
      cy.get(":nth-child(1) > .mat-focus-indicator").click();
    });
  });
+
+
+ 
  testData.ask.forEach((value, index) => {
    it(`Ask: ${value}`, () => {
      // const panel = `"Panel - 0${index}"`;
