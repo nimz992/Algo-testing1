@@ -1,23 +1,34 @@
 import testData from "../fixtures/testData.json";
 
-
 describe("Data testing", () => {
- beforeEach(() => {
-   cy.visit("https://algocore-uat.algoplus.com/_admin/Login");
-   cy.fixture("credential").then((user) => {
-     cy.get("#mat-input-0").clear().type(user.email);
-     cy.get("#mat-input-1").clear().type(user.password);
-     cy.get("#login").click();
-     cy.get(":nth-child(1) > .mat-focus-indicator").click();
-   });
- });
+  beforeEach(() => {
+    cy.fixture("credential").then((user) => {
+      cy.loginSession(user.email, user.password);
+    });
 
- testData.ask.forEach((value) => {
-   it(`Test Data Ask: "${value}"`, () => {
-     cy.wait(5000);
-     cy.get("#mat-input-2").type(`${value}{enter}`);
-     cy.wait(5000);
-     cy.get(`[id="Panel - 00"] app-dynamic-message`).should("not.exist");
-   });
- });
+    cy.visit("https://algocore-uat.algoplus.com/home");
+  });
+
+  testData.ask.forEach((value) => {
+    it(`Test Data Ask: "${value}"`, () => {
+      cy.title().should("eq", "Algo - Creative Intelligence");
+      cy.url().should("include", "/home");
+
+      cy.get("#mat-input-0", {
+        timeout: 10000,
+      }).type(`${value}{enter}`);
+
+      cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+        timeout: 10000,
+      }).then(($body) => {
+        if ($body.find("app-dynamic-message").length > 0) {
+          // Fail the test if the error message element is found
+          throw new Error("Error message element found, failing the test.");
+        } else {
+          // Pass the test if the error message element is not found
+          cy.log("No error message element found, test passed.");
+        }
+      });
+    });
+  });
 });

@@ -9,10 +9,19 @@
 // ***********************************************
 //
 //
+
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
+Cypress.Commands.add("loginSession", (username, password) => {
+  cy.session([username, password], () => {
+    cy.visit("https://algocore-uat.algoplus.com/_admin/Login");
+    cy.get("#mat-input-0").clear().type(username);
+    cy.get("#mat-input-1").clear().type(password);
+    cy.get("#login").click();
+    cy.get(":nth-child(1) > .mat-focus-indicator").click();
+    cy.wait(5000);      // Require time to get all sessions.
+  });
+});
+
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
