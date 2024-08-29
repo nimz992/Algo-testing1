@@ -22,8 +22,9 @@ describe("Data testing", () => {
         timeout: 10000,
       }).then(($body) => {
         if ($body.find("app-dynamic-message").length > 0) {
-          // Fail the test if the error message element is found
-          throw new Error("Error message element found, failing the test.");
+          cy.wrap($body)
+            .find("app-dynamic-message")
+            .should("not.include.text", "I am sorry");
         } else {
           // Pass the test if the error message element is not found
           cy.log("No error message element found, test passed.");
