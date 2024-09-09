@@ -3,7 +3,7 @@ import testData from "../fixtures/testData.json";
 describe("Data testing", () => {
   beforeEach(() => {
     cy.fixture("credential").then((user) => {
-      cy.loginSession(user.email, user.password);
+      cy.loginAsSDS(user.email, user.password);
     });
 
     cy.visit("https://algocore-uat.algoplus.com/home");
@@ -20,16 +20,10 @@ describe("Data testing", () => {
 
       cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
         timeout: 10000,
-      }).then(($body) => {
-        if ($body.find("app-dynamic-message").length > 0) {
-          cy.wrap($body)
-            .find("app-dynamic-message")
-            .should("not.include.text", "I am sorry");
-        } else {
-          // Pass the test if the error message element is not found
-          cy.log("No error message element found, test passed.");
-        }
       });
+
+      cy.get("app-dynamic-message").contains("I amadwad sorry");
+      cy.wait(100000);
     });
   });
 });

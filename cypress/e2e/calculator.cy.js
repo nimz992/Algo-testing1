@@ -1,7 +1,7 @@
 describe("Calculator", () => {
   beforeEach(() => {
     cy.fixture("credential").then((user) => {
-      cy.loginSession(user.email, user.password);
+      cy.loginAsSDS(user.email, user.password);
     });
 
     cy.visit("https://algocore-uat.algoplus.com/home");
@@ -21,7 +21,7 @@ describe("Calculator", () => {
       if ($body.find("app-dynamic-message").length > 0) {
         cy.wrap($body)
           .find("app-dynamic-message")
-          .should("not.include.text", "I am sorry");
+          .should("not.contain.text", "I am sorry");
       }
     });
 
