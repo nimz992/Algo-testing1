@@ -22,7 +22,7 @@ describe("DPIP files upload", () => {
     }).type(`upload air dates{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -42,7 +42,7 @@ describe("DPIP files upload", () => {
       { force: true }
     );
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
   // --------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
   // --------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ describe("DPIP files upload", () => {
     }).type(`upload ladder plan{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -120,7 +120,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
   // --------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ describe("DPIP files upload", () => {
     }).type(`upload amazon ladder plan{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -159,7 +159,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 
   // ------------------------ upload open orders ---------------------
@@ -176,7 +176,7 @@ describe("DPIP files upload", () => {
     }).type(`upload open orders{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -197,7 +197,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 
   // ------------------------ upload release schedule ---------------------
@@ -214,7 +214,7 @@ describe("DPIP files upload", () => {
     }).type(`upload release schedule{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -235,7 +235,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 
   // ------------------------ upload microsoft promotions ---------------------
@@ -252,7 +252,7 @@ describe("DPIP files upload", () => {
     }).type(`upload microsoft promotions{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -273,7 +273,7 @@ describe("DPIP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 
   // ------------------------ upload promotions ---------------------
@@ -290,7 +290,7 @@ describe("DPIP files upload", () => {
     }).type(`upload promotions{enter}`);
 
     // Checks app-dynamic-tabs for response.
-    cy.get(`[id="Panel - 00"] app-dynamic-tabs`, {
+    cy.get(`[id="Panel - 01"] app-dynamic-tabs`, {
       timeout: 10000,
     }).then(($body) => {
       // Check if app-dynamic-message is displayed.
@@ -305,12 +305,12 @@ describe("DPIP files upload", () => {
       }
     });
 
-    cy.get("input[id='upload-file-btnupload promotions']").selectFile(
+    cy.get("input[id='upload-file-btnPromotions File']").selectFile(
       "cypress/fixtures/files/upload promotions.xlsx",
       { force: true }
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 });

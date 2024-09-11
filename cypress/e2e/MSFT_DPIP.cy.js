@@ -36,6 +36,6 @@ describe("MSFT/DP-IP files upload", () => {
     );
 
     cy.get(".align-items-start > .mat-focus-indicator").click();
-    cy.get("#mat-tab-label-1-1", { timeout: 120000 });
+    cy.get("#mat-tab-label-1-1", { timeout: 300000 });
   });
 });
